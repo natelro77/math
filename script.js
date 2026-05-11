@@ -7,7 +7,7 @@ let solvedSet = new Set(JSON.parse(localStorage.getItem('solved') || '[]'));
 // ===== TRANSLATIONS =====
 const T = {
   it: {
-    hero_title: "Matematica STEM — Problemi & Soluzioni",
+    hero_title: "Matematica STEM: Problemi & Soluzioni",
     hero_sub: "Raccolta universitaria di problemi risolti per studenti di Ingegneria, Informatica e Scienze. Copertura completa dell'anno accademico.",
     problems_label: "Problemi",
     subjects_label: "Materie",
@@ -39,19 +39,20 @@ const T = {
     no_results_sub: "Prova con un altro termine di ricerca",
     section_desc: {
       all: "Tutti i problemi del corso",
-      a1: "Limiti, derivate, integrali, serie — Primo semestre",
-      la: "Vettori, matrici, sistemi lineari, autovalori — Primo semestre",
-      prob: "Probabilità discreta e continua, variabili aleatorie — Secondo semestre",
-      edo: "Equazioni differenziali ordinarie e sistemi — Secondo semestre",
-      a2: "Integrali multipli, serie di Fourier, funzioni di più variabili — Secondo semestre"
+      a1: "Limiti, derivate, integrali e serie. Primo semestre",
+      la: "Vettori, matrici, sistemi lineari e autovalori. Primo semestre",
+      prob: "Probabilita discreta e continua, variabili aleatorie. Secondo semestre",
+      edo: "Equazioni differenziali ordinarie e sistemi. Secondo semestre",
+      a2: "Integrali multipli, serie di Fourier e funzioni di piu variabili. Secondo semestre"
     },
     badge: "Raccolta Semestrale Completa",
     footer_desc: "Raccolta di problemi universitari STEM. Tutti i problemi includono soluzioni dettagliate passo-passo.",
+    footer_credit: "Creato da <strong>Nathan Pasquallini</strong> &nbsp;&middot;&nbsp; Non hai capito qualcosa? Contatta Nate per una spiegazione:",
     subjects_covered: "Materie Coperte",
     step: "Passo"
   },
   en: {
-    hero_title: "STEM Mathematics — Problems & Solutions",
+    hero_title: "STEM Mathematics: Problems & Solutions",
     hero_sub: "University-level solved problems for Engineering, Computer Science and Natural Sciences. Full academic year coverage.",
     problems_label: "Problems",
     subjects_label: "Subjects",
@@ -83,14 +84,15 @@ const T = {
     no_results_sub: "Try a different search term",
     section_desc: {
       all: "All course problems",
-      a1: "Limits, derivatives, integrals, series — First semester",
-      la: "Vectors, matrices, linear systems, eigenvalues — First semester",
-      prob: "Discrete and continuous probability, random variables — Second semester",
-      edo: "Ordinary differential equations and systems — Second semester",
-      a2: "Multiple integrals, Fourier series, multivariable functions — Second semester"
+      a1: "Limits, derivatives, integrals and series. First semester",
+      la: "Vectors, matrices, linear systems and eigenvalues. First semester",
+      prob: "Discrete and continuous probability and random variables. Second semester",
+      edo: "Ordinary differential equations and systems. Second semester",
+      a2: "Multiple integrals, Fourier series and multivariable functions. Second semester"
     },
     badge: "Full Semester Collection",
     footer_desc: "University STEM problem collection. All problems include detailed step-by-step solutions.",
+    footer_credit: "Created by <strong>Nathan Pasquallini</strong> &nbsp;&middot;&nbsp; Didn't understand something? Contact Nate for a further explanation:",
     subjects_covered: "Subjects Covered",
     step: "Step"
   }
@@ -239,14 +241,14 @@ const PROBLEMS = [
         { title: 'Dominio', body: 'Poiché \\(x^2+1\\geq 1 > 0\\) per ogni \\(x\\in\\mathbb{R}\\), il dominio è \\(\\mathbb{R}\\). La funzione è continua ovunque.' },
         { title: 'Asintoti', body: 'Orizzontale: \\(\\lim_{x\\to\\pm\\infty}f(x) = \\lim_{x\\to\\pm\\infty}\\frac{x^2-1}{x^2+1} = 1\\). Asintoto \\(y=1\\).\nVerticali: assenti (funzione continua su \\(\\mathbb{R}\\)).' },
         { title: 'Prima derivata', body: '\\[f\'(x) = \\frac{2x(x^2+1) - (x^2-1)\\cdot 2x}{(x^2+1)^2} = \\frac{4x}{(x^2+1)^2}\\]' },
-        { title: 'Monotonia e punti critici', body: '\\(f\'(x)=0 \\Leftrightarrow x=0\\).\n- \\(x<0\\): \\(f\'<0\\) — decrescente\n- \\(x>0\\): \\(f\'>0\\) — crescente\n\nMinimo locale in \\(x=0\\) con \\(f(0)=-1\\).' },
+        { title: 'Monotonia e punti critici', body: '\\(f\'(x)=0 \\Leftrightarrow x=0\\).\n- \\(x<0\\): \\(f\'<0\\), decrescente\n- \\(x>0\\): \\(f\'>0\\), crescente\n\nMinimo locale in \\(x=0\\) con \\(f(0)=-1\\).' },
         { title: 'Simmetria e range', body: '\\(f(-x)=f(x)\\): funzione pari. \\(\\text{Im}(f) = [-1,1)\\) perché \\(f(0)=-1\\) e \\(f\\to 1^-\\) mai raggiunto.' }
       ],
       en: [
         { title: 'Domain', body: 'Since \\(x^2+1\\geq 1 > 0\\) for all \\(x\\in\\mathbb{R}\\), the domain is \\(\\mathbb{R}\\).' },
         { title: 'Asymptotes', body: 'Horizontal: \\(\\lim_{x\\to\\pm\\infty}f(x) = 1\\). Asymptote \\(y=1\\).\nVertical: none (function continuous on \\(\\mathbb{R}\\)).' },
         { title: 'First derivative', body: '\\[f\'(x) = \\frac{2x(x^2+1) - (x^2-1)\\cdot 2x}{(x^2+1)^2} = \\frac{4x}{(x^2+1)^2}\\]' },
-        { title: 'Monotonicity and critical points', body: '\\(f\'(x)=0 \\Leftrightarrow x=0\\).\n- \\(x<0\\): \\(f\'<0\\) — decreasing\n- \\(x>0\\): \\(f\'>0\\) — increasing\n\nLocal minimum at \\(x=0\\), \\(f(0)=-1\\).' },
+        { title: 'Monotonicity and critical points', body: '\\(f\'(x)=0 \\Leftrightarrow x=0\\).\n- \\(x<0\\): \\(f\'<0\\), decreasing\n- \\(x>0\\): \\(f\'>0\\), increasing\n\nLocal minimum at \\(x=0\\), \\(f(0)=-1\\).' },
         { title: 'Symmetry and range', body: '\\(f(-x)=f(x)\\): even function. \\(\\text{Range} = [-1,1)\\) since \\(f(0)=-1\\) and \\(f\\to 1\\) never reached.' }
       ]
     },
@@ -507,7 +509,7 @@ const PROBLEMS = [
         { title: 'c) Projection', body: '\\[\\text{proj}_{\\mathbf{v}}\\mathbf{u}=\\frac{2}{10}(3,0,1)=\\left(\\frac{3}{5},0,\\frac{1}{5}\\right)\\]' }
       ]
     },
-    answer: { it: 'a) \\(2\\) — b) \\(\\approx74.9°\\) — c) \\(\\left(\\frac{3}{5},0,\\frac{1}{5}\\right)\\)', en: 'a) \\(2\\) — b) \\(\\approx74.9°\\) — c) \\(\\left(\\frac{3}{5},0,\\frac{1}{5}\\right)\\)' }
+    answer: { it: 'a) \\(2\\), b) \\(\\approx74.9°\\), c) \\(\\left(\\frac{3}{5},0,\\frac{1}{5}\\right)\\)', en: 'a) \\(2\\), b) \\(\\approx74.9°\\), c) \\(\\left(\\frac{3}{5},0,\\frac{1}{5}\\right)\\)' }
   },
   {
     id: 'la-05', subject: 'la', diff: 'hard',
@@ -648,7 +650,7 @@ const PROBLEMS = [
         { title: 'c) Mean and variance', body: 'For \\(X\\sim\\text{Poi}(\\lambda)\\): \\(E[X]=\\text{Var}(X)=\\lambda=3\\)' }
       ]
     },
-    answer: { it: 'a) \\(\\approx 10.08\\%\\) — b) \\(\\approx 42.32\\%\\) — c) \\(E=3, \\text{Var}=3\\)', en: 'a) \\(\\approx 10.08\\%\\) — b) \\(\\approx 42.32\\%\\) — c) \\(E=3, \\text{Var}=3\\)' }
+    answer: { it: 'a) \\(\\approx 10.08\\%\\), b) \\(\\approx 42.32\\%\\), c) \\(E=3, \\text{Var}=3\\)', en: 'a) \\(\\approx 10.08\\%\\), b) \\(\\approx 42.32\\%\\), c) \\(E=3, \\text{Var}=3\\)' }
   },
   {
     id: 'prob-03', subject: 'prob', diff: 'hard',
@@ -703,7 +705,7 @@ const PROBLEMS = [
         { title: 'b) Quantile', body: '\\(z=1.645\\Rightarrow x=70+16.45=86.45\\)' }
       ]
     },
-    answer: { it: 'a) \\(\\approx 77.45\\%\\) — b) \\(x\\approx 86.45\\)', en: 'a) \\(\\approx 77.45\\%\\) — b) \\(x\\approx 86.45\\)' }
+    answer: { it: 'a) \\(\\approx 77.45\\%\\), b) \\(x\\approx 86.45\\)', en: 'a) \\(\\approx 77.45\\%\\), b) \\(x\\approx 86.45\\)' }
   },
   {
     id: 'prob-05', subject: 'prob', diff: 'hard',
@@ -756,7 +758,7 @@ const PROBLEMS = [
         { title: 'c) Memoryless', body: 'The exponential distribution "forgets" how long you have waited: the remaining wait time has the same distribution regardless of how much time has already passed.' }
       ]
     },
-    answer: { it: 'a) \\(e^{-2}\\approx13.5\\%\\) — b) \\(e^{-2}\\approx13.5\\%\\) (assenza di memoria)', en: 'a) \\(e^{-2}\\approx13.5\\%\\) — b) \\(e^{-2}\\approx13.5\\%\\) (memoryless)' }
+    answer: { it: 'a) \\(e^{-2}\\approx13.5\\%\\), b) \\(e^{-2}\\approx13.5\\%\\) (assenza di memoria)', en: 'a) \\(e^{-2}\\approx13.5\\%\\), b) \\(e^{-2}\\approx13.5\\%\\) (memoryless)' }
   },
 
   // ==============================
@@ -820,7 +822,7 @@ const PROBLEMS = [
   },
   {
     id: 'edo-03', subject: 'edo', diff: 'hard',
-    title: { it: 'EDO lineare non omogenea con variazione dei parametri', en: 'Non-homogeneous ODE — variation of parameters' },
+    title: { it: 'EDO lineare non omogenea con variazione dei parametri', en: 'Non-homogeneous ODE: variation of parameters' },
     tags: { it: ['Variazione dei parametri', 'Non omogenea'], en: ['Variation of parameters', 'Non-homogeneous'] },
     exam: true,
     problem: {
@@ -880,7 +882,7 @@ const PROBLEMS = [
   },
   {
     id: 'edo-05', subject: 'edo', diff: 'hard',
-    title: { it: 'Sistema di EDO — metodo degli autovalori', en: 'System of ODEs — eigenvalue method' },
+    title: { it: 'Sistema di EDO: metodo degli autovalori', en: 'System of ODEs: eigenvalue method' },
     tags: { it: ['Sistemi di EDO', 'Autovalori'], en: ['ODE systems', 'Eigenvalues'] },
     exam: true,
     problem: {
@@ -969,7 +971,7 @@ const PROBLEMS = [
   },
   {
     id: 'a2-02', subject: 'a2', diff: 'hard',
-    title: { it: 'Integrale doppio — cambiamento di coordinate', en: 'Double integral — change of variables' },
+    title: { it: 'Integrale doppio: cambiamento di coordinate', en: 'Double integral: change of variables' },
     tags: { it: ['Integrali doppi', 'Coordinate polari'], en: ['Double integrals', 'Polar coordinates'] },
     exam: true,
     problem: {
@@ -997,7 +999,7 @@ const PROBLEMS = [
   },
   {
     id: 'a2-03', subject: 'a2', diff: 'hard',
-    title: { it: 'Massimi e minimi vincolati — Moltiplicatori di Lagrange', en: 'Constrained optimization — Lagrange multipliers' },
+    title: { it: 'Massimi e minimi vincolati: moltiplicatori di Lagrange', en: 'Constrained optimization: Lagrange multipliers' },
     tags: { it: ['Lagrange', 'Ottimizzazione vincolata'], en: ['Lagrange', 'Constrained optimization'] },
     exam: true,
     problem: {
