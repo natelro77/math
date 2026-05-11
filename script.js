@@ -47,7 +47,7 @@ const T = {
     },
     badge: "Raccolta Semestrale Completa",
     footer_desc: "Raccolta di problemi universitari STEM. Tutti i problemi includono soluzioni dettagliate passo-passo.",
-    footer_credit: "Creato da <strong>Nathan Pasquallini</strong> &nbsp;&middot;&nbsp; Non hai capito qualcosa? Contatta Nate per una spiegazione:",
+    footer_credit: "Creato da <strong>Nathan Pasquallini</strong> &nbsp;&middot;&nbsp; Non hai capito qualcosa? Contatta Nate per una spiegazione: natepasquallini@gmail.com",
     subjects_covered: "Materie Coperte",
     step: "Passo"
   },
